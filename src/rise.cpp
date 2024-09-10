@@ -11,13 +11,18 @@ namespace Rise {
     }
 
     RiseGame::~RiseGame() {
-         engine->renderer.getTextureRepository().freeBySprite(sprite);
+
+        engine->renderer.getTextureRepository().freeBySprite(title);        
+        engine->renderer.getTextureRepository().freeBySprite(background);
+        engine->renderer.getTextureRepository().freeBySprite(newgame);
     }
 
     void RiseGame::init() {
 
         engine->renderer.setClearScreenColor(Color(222.0F, 222.0F, 222.0F));
-        loadSprite(&sprite, "title.png", 128.0f, 64.0f, 256.0f, 128.0f);
+        loadSprite(&background, "ui/menuBackground.png", 0.0f, 0.0f, 512.0f, 512.0f);
+        loadSprite(&title, "ui/title.png", 0.0f, 25.0f, 512.0f, 128.0f);
+        loadSprite(&newgame, "ui/newgame.png", 50.0f, 175.0f, 256.0f, 64.0f);
     }
 
     void RiseGame::loop() {
@@ -26,7 +31,9 @@ namespace Rise {
 
         renderer.beginFrame();
 
-        renderer.renderer2D.render(sprite);
+        renderer.renderer2D.render(background);
+        renderer.renderer2D.render(title);
+        renderer.renderer2D.render(newgame);
 
         renderer.endFrame();
     }
