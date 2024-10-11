@@ -2,7 +2,6 @@
 
 #include <tyra>
 #include <memory>
-#include "./camera.hpp"
 
 namespace Cs {
 
@@ -20,6 +19,7 @@ namespace Cs {
 
       		private:
 
+        		Tyra::Engine* engine;
     };
 
 }
