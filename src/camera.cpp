@@ -5,7 +5,7 @@ namespace Tyra {
     Camera::Camera(Pad* t_pad) :
 
         lookAt(0.0F),
-        position(-2000.0F, 0.0F, -6000.0F),
+        position(-2000.0F, 700.0F, -6000.0F),
         pad(t_pad),
         circleRotation(-5.0F),
         circleLength(30.0F),
@@ -51,7 +51,15 @@ namespace Tyra {
             position.z += direction.x;
         }
 
-        position.y = 700.0F;
+        if (pad->getPressed().DpadUp) {
+
+            position.y += 25;
+        }
+        else if (pad->getPressed().DpadDown) {
+
+            position.y -= 25;
+
+        }
     }
 
     void Camera::updateLookAt() {
@@ -62,22 +70,22 @@ namespace Tyra {
 
         if (rightJoy.h <= 100) {
 
-            circleRotation -= rotationOffset;
+            circleRotation += rotationOffset;
 
         }
         else if (rightJoy.h >= 200) {
 
-            circleRotation += rotationOffset;
+            circleRotation -= rotationOffset;
         }
 
         if (rightJoy.v <= 100) {
 
-            lookAtHeight -= heightOffset;
+            lookAtHeight += heightOffset;
 
         }
         else if (rightJoy.v >= 200) {
 
-            lookAtHeight += heightOffset;
+            lookAtHeight -= heightOffset;
 
         }
 
