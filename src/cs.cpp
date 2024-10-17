@@ -9,7 +9,7 @@ namespace Cs {
 
     GameState currentState = GameState::MainMenu;
 
-    CsGame::CsGame(Engine* t_engine) : engine(t_engine), menu(engine) {
+    CsGame::CsGame(Engine* t_engine) : engine(t_engine), menu(engine), gameplay(engine) {
 
     }
 
@@ -25,10 +25,6 @@ namespace Cs {
 
     void CsGame::loop() {
 
-        auto& renderer = engine->renderer;
-
-        renderer.beginFrame();
-
         switch (currentState) {
 
             case GameState::MainMenu:
@@ -36,9 +32,15 @@ namespace Cs {
                 menu.loop();
                 menu.controls();
                 break;
+
+            case GameState::GamePlay:
+
+                gameplay.loop();
+                gameplay.controls();
+                break;
+
         }
 
-        renderer.endFrame();
     }
 
     void CsGame::setGameState(GameState state) {
@@ -51,6 +53,12 @@ namespace Cs {
 
                 menu.init();
                 break;
+
+            case GameState::GamePlay:
+
+                gameplay.init();
+                break;
+            
         }
     }
 
