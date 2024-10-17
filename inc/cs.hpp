@@ -3,6 +3,10 @@
 #include <tyra>
 #include <memory>
 
+#include "./menu.hpp"
+#include "./gameplay.hpp"
+#include "./gamestate.hpp"
+
 namespace Cs {
 
     class CsGame:
@@ -11,8 +15,8 @@ namespace Cs {
 
         	public:
         
-        		CsGame(Tyra::Engine* engine);
-        		~CsGame();
+        	    CsGame(Tyra::Engine* engine);
+        	    ~CsGame();
 
         		void init();
         		void loop();
@@ -20,6 +24,12 @@ namespace Cs {
       		private:
 
         		Tyra::Engine* engine;
+
+				Tyra::Menu menu;
+				Tyra::Gameplay gameplay;
+
+				void setGameState(GameState state);
+
     };
 
 }
