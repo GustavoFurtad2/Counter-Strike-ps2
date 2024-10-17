@@ -22,8 +22,12 @@ namespace Tyra {
         
         auto& renderer = engine->renderer;
 
-        renderer.renderer2D.render(background);
+        renderer.beginFrame();
 
+        renderer.renderer2D.render(background);
+        
+        renderer.endFrame();
+        
     }
 
     void Menu::controls() {
@@ -31,6 +35,7 @@ namespace Tyra {
         if (engine->pad.getPressed().Cross) {
 
             Cs::currentState = Cs::GameState::GamePlay;
+            
         }
     }
 
