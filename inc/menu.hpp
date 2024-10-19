@@ -19,6 +19,7 @@ namespace Tyra {
 
             Tyra::Engine* engine;
 
+            Tyra::Sprite loading;
             Tyra::Sprite background;
 
             void loadSprite(Tyra::Sprite* sprite, const char filename[], float x, float y, float w, float h);
