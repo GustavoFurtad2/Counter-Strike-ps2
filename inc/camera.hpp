@@ -28,7 +28,15 @@ namespace Tyra {
             void updateLookAt();
 
             Pad* pad;
-            float circleRotation, circleLength, speed, lookAtHeight;
+
+            float speed = 5.0f;
+
+            float minSpeed = 0.1f;
+            float maxSpeed = 15.0f;
+
+            float acceleration = 0.25;
+
+            float circleRotation, circleLength, lookAtHeight;
     };
 
 }
