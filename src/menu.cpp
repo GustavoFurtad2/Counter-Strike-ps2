@@ -15,6 +15,7 @@ namespace Tyra {
 
     void Menu::init() {
 
+        loadSprite(&loading, "menu/loading.png", 0.0f, 0.0f, 512.0f, 448.0f);
         loadSprite(&background, "menu/background.png", 0.0f, 0.0f, 512.0f, 448.0f);
     }
 
@@ -35,7 +36,13 @@ namespace Tyra {
         if (engine->pad.getPressed().Cross) {
 
             Cs::currentState = Cs::GameState::GamePlay;
+
+            engine->renderer.beginFrame();
+
+            engine->renderer.renderer2D.render(loading);
             
+            engine->renderer.endFrame();
+
         }
     }
 
