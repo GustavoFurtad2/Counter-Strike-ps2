@@ -11,6 +11,8 @@ namespace Tyra {
 
     Menu::~Menu() {
 
+        engine->renderer.getTextureRepository().freeBySprite(loading);
+        engine->renderer.getTextureRepository().freeBySprite(background);
     }
 
     void Menu::init() {
