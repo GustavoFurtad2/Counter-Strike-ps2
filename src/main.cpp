@@ -1,10 +1,10 @@
 #include <tyra>
-#include "rise.hpp"
+#include "cs.hpp"
 
 int main() {
   
   Tyra::Engine engine;
-  Rise::RiseGame game(&engine);
+  Cs::CsGame game(&engine);
   engine.run(&game);
   SleepThread();
   return 0;

@@ -79,7 +79,7 @@ namespace Tyra {
 
         const float rotationOffset = 0.045F;
         const float heightOffset = 2.0F;
-        
+
         const auto& rightJoy = pad->getRightJoyPad();
 
         if (rightJoy.h <= 100) {
@@ -105,5 +105,6 @@ namespace Tyra {
         unitCircle.z = Math::cos(circleRotation) * circleLength;
 
         lookAt = unitCircle + position;
+        
     }
 }
