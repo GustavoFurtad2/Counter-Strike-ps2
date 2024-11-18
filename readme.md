@@ -1,0 +1,1 @@
+Counter Strike PS2 is a recreation of Valve's Counter Strike game originally released for PC, still in development
