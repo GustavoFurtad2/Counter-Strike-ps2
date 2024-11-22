@@ -2,6 +2,8 @@
 
 #include <tyra>
 
+#define FONT_CHAR_SIZE 96
+
 namespace Tyra {
 
     class Font {
@@ -14,17 +16,18 @@ namespace Tyra {
             void load(TextureRepository& repository, Renderer2D* renderer);
             void free(TextureRepository& repository);
 
-            void drawText(const std::string& text, const int& x, const int& y, Color color);
+            void print(const std::string& text, const int& x, const int& y, Color color);
 
         private:
 
             Tyra::Renderer2D* renderer2D;
 
-            Tyra::Sprite tahomaFontMap;
+            Tyra::Sprite fontMap;
 
-            std::array<Tyra::Sprite, 82> font;
+            std::array<Tyra::Sprite, FONT_CHAR_SIZE> font;
 
-            const static int chars[26];
+            const static int chars[FONT_CHAR_SIZE];
+            const static int charWidths[FONT_CHAR_SIZE];
 
     };
 }

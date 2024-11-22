@@ -14,6 +14,8 @@ namespace Tyra {
         engine->renderer.getTextureRepository().freeBySprite(logo);
         engine->renderer.getTextureRepository().freeBySprite(loading);
         engine->renderer.getTextureRepository().freeBySprite(background);
+
+        font.free(engine->renderer.getTextureRepository());
     }
 
     void Menu::init() {
@@ -21,6 +23,8 @@ namespace Tyra {
         loadSprite(&logo, "menu/logo.png", 25.0f, 290.0f, 256.0f, 256.0f);
         loadSprite(&loading, "menu/loading.png", 0.0f, 0.0f, 512.0f, 448.0f);
         loadSprite(&background, "menu/background.png", 0.0f, 0.0f, 512.0f, 448.0f);
+
+        font.load(engine->renderer.getTextureRepository(), &engine->renderer.renderer2D);
     }
 
     void Menu::loop() {
@@ -32,6 +36,11 @@ namespace Tyra {
         renderer.renderer2D.render(background);
 
         renderer.renderer2D.render(logo);
+
+        font.print("New game", 10, 250, Color(255, 255, 255));
+        font.print("Find Servers", 10, 270, Color(255, 255, 255));
+        font.print("Options", 10, 290, Color(255, 255, 255));
+        font.print("Quit", 10, 310, Color(255, 255, 255));
         
         renderer.endFrame();
         
